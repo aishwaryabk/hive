@@ -42,7 +42,7 @@ env:
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install -y maven 
+  - sudo apt-get install -y maven protobuf-compiler
   - ls
   - ls /etc/
   - ls /etc/maven/
@@ -52,4 +52,6 @@ before_install:
 
 install: true
 
-script: mvn clean install -DskipTests -q -Pitests
+script: 
+  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Durl=https://repo.maven.apache.org/maven2
+  - mvn clean install -DskipTests -q -Pitests
