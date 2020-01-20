@@ -53,5 +53,5 @@ before_install:
 install: true
 
 script: 
-  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Durl=https://repo.maven.apache.org/maven2
+  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - mvn clean install -DskipTests -q -Pitests
