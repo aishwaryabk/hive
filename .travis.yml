@@ -41,7 +41,7 @@ env:
 
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
 before_install:
-  - apt-get install -y maven 
+  - sudo apt-get install -y maven 
   - mvn --version
   - ls ~/
   - ls ~/.m2/
