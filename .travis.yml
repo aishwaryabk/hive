@@ -54,4 +54,5 @@ install: true
 
 script: 
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
+  - protoc --version
   - mvn clean install -DskipTests=true
