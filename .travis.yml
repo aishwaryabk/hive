@@ -69,4 +69,6 @@ before_install:
 install: true
 
 script: 
+  - sudo git clone https://github.com/apache/hive
+  - cd hive
   - mvn clean install -DskipTests -q -Pitests
