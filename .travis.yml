@@ -77,7 +77,7 @@ before_install:
 install: true
 
 script: 
-  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - sudo git clone https://github.com/apache/hive
   - cd hive
-  - sudo mvn clean install -DskipTests=true -q -Pitests
+  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
+  - mvn clean install -DskipTests=true -q -Pitests
