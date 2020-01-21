@@ -42,7 +42,7 @@ env:
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install -y maven protobuf-compiler libjson*
+  - sudo apt-get install -y maven protobuf-compiler libjson* libgoogle-glog-dev libgflags-dev liblz4-dev libc6-dev
   - sudo wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
   - sudo tar -xvzf protobuf-2.5.0.tar.gz --no-same-owner
   - cd protobuf-2.5.0
