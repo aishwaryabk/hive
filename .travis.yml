@@ -42,11 +42,7 @@ env:
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install -y maven protobuf-compiler libprotobuf-dev
-  - ls
-  - ls /etc/
-  - ls /etc/maven/
-  
+  - sudo apt-get install -y maven protobuf-compiler
   - sudo sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' /etc/maven/settings.xml
 
 
