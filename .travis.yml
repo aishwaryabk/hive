@@ -60,7 +60,7 @@ install: true
 
 script: 
   - sudo git clone https://github.com/apache/hive
-  - chmod -R u+w 
+  - chmod -R u+w /hive
   - cd hive
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - mvn clean install -DskipTests=true -q -Pitests
