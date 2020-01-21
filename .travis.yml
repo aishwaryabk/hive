@@ -45,7 +45,7 @@ before_install:
   - sudo apt-get install -y maven protobuf-compiler
   - sudo wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
   - sudo tar -xvzf protobuf-2.5.0.tar.gz --no-same-owner
-   - cd protobuf-2.5.0
+  - cd protobuf-2.5.0
   - ls -l
   - pwd
   - cat autogen.sh
