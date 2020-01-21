@@ -43,12 +43,26 @@ env:
 before_install:
   - sudo apt-get update -y
   - sudo apt-get install -y maven protobuf-compiler
+  - sudo wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
+  - sudo tar -xf protobuf-2.5.0.tar.gz
+  - cd protobuf-2.5.0
+  - sudo sed -i '22s/http:\/\/googletest.googlecode.com\/files\/gtest-1.5.0.tar.bz2/https:\/\/src.fedoraproject.org\/repo\/pkgs\/gtest\/gtest-1.5.0.tar.bz2\/8b2c3c3f26cb53e64a3109d03a97200a\/gtest-1.5.0.tar.bz2/' autogen.sh
+  - cd src/google/protobuf/stubs/
+  - rm atomicops.h platform_macros.h 
+  - sudo wget https://raw.githubusercontent.com/protocolbuffers/protobuf/2.7.0/src/google/protobuf/stubs/atomicops.h 
+  - sudo wget https://raw.githubusercontent.com/protocolbuffers/protobuf/2.7.0/src/google/protobuf/stubs/atomicops_internals_power.h  
+  - sudo wget https://raw.githubusercontent.com/protocolbuffers/protobuf/2.7.0/src/google/protobuf/stubs/platform_macros.h 
+  - cd ../../../../
+  - sudo ./autogen.sh
+  - sudo ./configure
+  - sudo make 
+  - sudo make install 
   - sudo sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' /etc/maven/settings.xml
 
 
 install: true
 
 script: 
-  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
+  
   - protoc --version
   - mvn clean install -DskipTests=true
