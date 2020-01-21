@@ -51,25 +51,7 @@ before_install:
   - sudo pip install cogapp
   - export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-ppc64el
   - export LD_LIBRARY_PATH=/usr/local/lib
-  - sudo wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
-  - sudo tar -xvzf protobuf-2.5.0.tar.gz --no-same-owner
-  - cd protobuf-2.5.0
-  - ls -l
-  - pwd
-  - cat autogen.sh
-  - sudo sed -i '22s/http:\/\/googletest.googlecode.com\/files\/gtest-1.5.0.tar.bz2/https:\/\/src.fedoraproject.org\/repo\/pkgs\/gtest\/gtest-1.5.0.tar.bz2\/8b2c3c3f26cb53e64a3109d03a97200a\/gtest-1.5.0.tar.bz2/' autogen.sh
-  - ls
-  - cd src/google/protobuf/stubs/
-  - ls
-  - sudo rm atomicops.h platform_macros.h
-  - sudo wget https://raw.githubusercontent.com/protocolbuffers/protobuf/2.7.0/src/google/protobuf/stubs/atomicops.h
-  - sudo wget https://raw.githubusercontent.com/protocolbuffers/protobuf/2.7.0/src/google/protobuf/stubs/atomicops_internals_power.h
-  - sudo wget https://raw.githubusercontent.com/protocolbuffers/protobuf/2.7.0/src/google/protobuf/stubs/platform_macros.h
-  - cd ../../../../
-  - sudo ./autogen.sh
-  - sudo ./configure
-  - sudo make
-  - sudo make install
+  
   - protoc --version
   - sudo sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' /etc/maven/settings.xml
   
