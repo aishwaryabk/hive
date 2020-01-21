@@ -50,7 +50,6 @@ before_install:
   - sudo pip install pyyaml
   - sudo pip install cogapp
   - export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-ppc64el
-  - export LD_LIBRARY_PATH=/usr/local/lib
   
   - protoc --version
   - sudo sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' /etc/maven/settings.xml
@@ -60,7 +59,6 @@ install: true
 
 script: 
   - sudo git clone https://github.com/apache/hive
-  - chmod +rwx hive/
   - cd hive
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
-  - mvn clean install -DskipTests=true -q -Pitests
+  - mvn clean install -DskipTests=true
