@@ -42,15 +42,8 @@ env:
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
 before_install:
   - sudo apt-get update -y
-  - sudo apt-get install -y git tar make gcc g++ wget cmake libboost-all-dev bison flex openjdk-8-jdk maven gperf libsnappy-dev libevent-dev automake libtool libjson-perl libreadline-dev
-  - sudo apt-get install -y libapr1 libapr1-dev unzip curl libcurl4-openssl-dev libbz2-dev pkg-config libssl-dev 
-  - sudo apt-get install -y libjson* libxml2-dev python-dev python-setuptools python-pip libghc-gsasl-dev protobuf-compiler
-  - sudo apt-get install -y libgtest-dev gsasl build-essential libkrb5-dev 
-  - sudo apt-get install libyaml-dev libpython2.7-dev libgoogle-glog-dev libgflags-dev liblz4-dev libc6-dev  postgresql postgresql-contrib
-  - sudo pip install pyyaml
-  - sudo pip install cogapp
+  - sudo apt-get install -y git gcc g++ openjdk-8-jdk maven protobuf-compiler
   - export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-ppc64el
-  
   - protoc --version
   - sudo sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' /etc/maven/settings.xml
   
