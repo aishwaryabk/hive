@@ -51,10 +51,12 @@ before_install:
 install: true
 
 script: 
+  - cd /
   - sudo git clone https://github.com/apache/hive
   - cd hive
   - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.0.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
+  - pwd
   - protoc --version
   - export LD_LIBRARY_PATH=/usr/local/lib
   - protoc --version
