@@ -53,7 +53,7 @@ install: true
 script: 
   - sudo git clone https://github.com/apache/hive
   - cd hive
-  - sed -i '201s/2.5.0/3.0.0/' pom.xml
+  - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.0.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - export LD_LIBRARY_PATH=/usr/local/lib
   - mvn clean install -DskipTests=true
