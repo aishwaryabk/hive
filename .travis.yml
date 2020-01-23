@@ -55,9 +55,9 @@ script:
   - sudo git clone https://github.com/apache/hive
   - sudo chmod 777 hive -R
   - cd hive
-  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.0.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - sudo sed -i '201s/2.5.0/3.0.0' pom.xml
+  - sudo sed -i '95s/2.5.0/3.0.0/' standalone-metastore/pom.xml
   - pwd
   - protoc --version
   - export LD_LIBRARY_PATH=/usr/local/lib
