@@ -51,6 +51,5 @@ script:
   - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
   - sudo sed -i '95s/2.5.0/3.0.0/' standalone-metastore/pom.xml
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.0.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
-  - export LD_LIBRARY_PATH=/usr/local/lib
   - mvn clean install -DskipTests -q -Pitests > Results.txt
   - sudo cat Results.txt | tail -20
