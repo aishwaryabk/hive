@@ -19,8 +19,8 @@
 arch: amd64
 sudo: required
 dist: trusty
-matrix:
-  fast_finish: true
+jobs:
+ - fast_finish: true
   include:
     arch: ppc64le
     os: linux
