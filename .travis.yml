@@ -19,8 +19,6 @@
 
 sudo: required
 dist: trusty
-language: java
-jdk: openjdk8
 
 jobs:
   - arch: ppc64le
