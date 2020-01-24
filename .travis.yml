@@ -65,5 +65,5 @@ script:
   - protoc --version
   - export LD_LIBRARY_PATH=/usr/local/lib
   - protoc --version
-  - mvn clean install -DskipTests=true > Results.txt
+  - mvn clean install -DskipTests -q -Pitests > Results.txt
   - sudo cat Results.txt | tail -20
