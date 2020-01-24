@@ -19,31 +19,7 @@
 
 sudo: required
 dist: trusty
-matrix:
-  fast_finish: true
-  include:
-    arch: ppc64le
-    os: linux
-    language: java
-    env:
-      MAVEN_SKIP_RC=true
-      MAVEN_OPTS="-Xmx2g"
-      
-    before_install:
-      - sudo apt-get update -y
-      - sudo apt-get install -y maven protobuf-compiler openjdk-8-jdk
-      - export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-ppc64el
-      - sudo sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' /etc/maven/settings.xml
 
-    install: true
-
-    script: 
-      - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
-      - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
-      - sudo sed -i '95s/2.5.0/3.0.0/' standalone-metastore/pom.xml
-      - export LD_LIBRARY_PATH=/usr/local/lib
-      - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.0.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
-      - mvn clean install -DskipTests -q -Pitests 
       
 # travis performs a shallow clone by default, in case of any issues
 # that requires full git history, enable this
