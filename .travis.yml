@@ -20,7 +20,7 @@ arch: amd64
 sudo: required
 dist: trusty
 jobs:
-   - arch: ppc64le
+  - arch: ppc64le
     os: linux
     language: java
     jdk:
