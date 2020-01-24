@@ -21,7 +21,6 @@ sudo: required
 dist: trusty
 jobs:
   - fast_finish: true
-  include:
     arch: ppc64le
     os: linux
     language: java
