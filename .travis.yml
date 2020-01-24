@@ -55,6 +55,7 @@ script:
   - sudo git clone https://github.com/apache/hive
   - sudo chmod 777 hive -R
   - cd hive
+  - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.8.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - sudo grep -nr "<protobuf.version>"
   - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
