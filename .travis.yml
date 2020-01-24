@@ -49,7 +49,6 @@ before_install:
 install: true
 
 script: 
-  - sudo chmod 777 hive -R
   - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
   - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
   - sudo sed -i '95s/2.5.0/3.0.0/' standalone-metastore/pom.xml
