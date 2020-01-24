@@ -20,7 +20,7 @@ arch: amd64
 sudo: required
 dist: trusty
 jobs:
- - fast_finish: true
+  - fast_finish: true
   include:
     arch: ppc64le
     os: linux
