@@ -42,6 +42,7 @@ env:
   env: TARGET=amd64
     
 before_script:
+  - GOARCH="${TARGET}"
     if [ "${TARGET}" == "ppc64le" ]; then
       os: linux
 
