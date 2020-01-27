@@ -42,12 +42,27 @@ jobs:
   - arch: ppc64le
     env: TARGET=ppc64le
     
+before_script:
+    if [ "${TARGET}" == "ppc64le" ]; then
+      os: linux
+      before_install:
+        - sudo apt-get update -y
+        - sudo apt-get install -y maven protobuf-compiler openjdk-8-jdk
+        - export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-ppc64el
+        - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=2.5.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
+        - sudo sed -i '201s/2.5.0/3.0.0/' pom.xml
+        - sudo sed -i '95s/2.5.0/3.0.0/' standalone-metastore/pom.xml
+        - export LD_LIBRARY_PATH=/usr/local/lib
+        - mvn install:install-file -DgroupId=com.google.protobuf -DartifactId=protoc -Dversion=3.0.0 -Dclassifier=linux-ppcle_64 -Dpackaging=exe -Dfile=/usr/bin/protoc
+        - mvn clean install -DskipTests -q -Pitests
+    fi
+    if [ "${TARGET}" == "amd64" ]; then
+      before_install:
+        - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
 
         
 
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
-before_install:
-  - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
 
 
 install: true
