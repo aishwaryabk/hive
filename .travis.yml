@@ -46,7 +46,7 @@ before_install:
   - GOARCH="${TARGET}" 
   
   - |
-    if [ "${TARGET}" == "amd64" ]; then
+    if [ "${TARGET}" == "ppc64le" ]; then
          os: linux
          sudo apt-get update -y
          sudo apt-get install -y maven protobuf-compiler openjdk-8-jdk
