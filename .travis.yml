@@ -22,7 +22,12 @@ dist: trusty
 # travis performs a shallow clone by default, in case of any issues
 # that requires full git history, enable this
 # before_install: git fetch --unshallow
-
+jobs:
+  - arch: amd64
+    env: TARGET=amd64
+  - arch: amd64
+    env: TARGET=ppc64le
+    
 language: java
 jdk:
   - oraclejdk8
