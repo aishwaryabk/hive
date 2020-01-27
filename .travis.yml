@@ -36,11 +36,10 @@ env:
   MAVEN_SKIP_RC=true
   MAVEN_OPTS="-Xmx2g"
 
-jobs:
-  include:
-    - arch: ppc64le
-      env: TARGET=ppc64le
-
+- arch: ppc64le
+  env: TARGET=ppc64le
+- arch: amd64
+  env: TARGET=amd64
     
 before_install:
   if [ "${TARGET}" == "ppc64le" ]; then
