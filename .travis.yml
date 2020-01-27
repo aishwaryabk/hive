@@ -25,7 +25,7 @@ dist: trusty
 jobs:
   - arch: amd64
     env: TARGET=amd64
-  - arch: amd64
+  - arch: ppc64le
     env: TARGET=ppc64le
     
 language: java
@@ -47,7 +47,6 @@ before_install:
   - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
   - |
     if [ "${TARGET}" == "ppc64le" ]; then
-       - arch: ppc64le
          os: linux
          sudo apt-get update -y
          sudo apt-get install -y maven protobuf-compiler openjdk-8-jdk
