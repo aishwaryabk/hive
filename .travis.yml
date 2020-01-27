@@ -37,7 +37,8 @@ env:
   MAVEN_OPTS="-Xmx2g"
 
 jobs:
-  - arch: ppc64le
+  include:
+    - arch: ppc64le
     env: TARGET=ppc64le
     
 before_script:
