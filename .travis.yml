@@ -45,9 +45,9 @@ before_script:
       os: linux
      
     fi
-    if [ "${TARGET}" == "amd64" ]; then
-      before_install:
-        - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
+   
+    before_install:
+      - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
 
         
 
