@@ -39,14 +39,9 @@ env:
 jobs:
   include:
     - arch: ppc64le
-    env: TARGET=ppc64le
+      env: TARGET=ppc64le
     
-before_script:
-    if [ "${TARGET}" == "ppc64le" ]; then
-      os: linux
-     
-    fi
-   
+
     before_install:
       - sed -i.bak -e 's|https://nexus.codehaus.org/snapshots/|https://oss.sonatype.org/content/repositories/codehaus-snapshots/|g' ~/.m2/settings.xml
 
