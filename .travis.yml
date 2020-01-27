@@ -40,7 +40,6 @@ jobs:
   include:
       - # require the arch name to be ppc64le
         if: arch = ppc64le
-          os: linux
         
 
 # workaround added: https://github.com/travis-ci/travis-ci/issues/4629
